@@ -1,0 +1,50 @@
+.itemDetail {
+  background-color: aqua;
+  height: 500px;
+}
+.detailCard {
+  display: flex;
+  height: 500px;
+  justify-content: center;
+}
+.detailImgContainer {
+  text-align: center;
+  width: 40%;
+}
+
+.detailImg {
+  height: 100%;
+}
+.detailInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.detailHeader {
+  display: flex;
+  width: 100%;
+  gap: 100px;
+  align-items: baseline;
+  font-size: 1.5rem;
+  text-align: start;
+}
+.detailInfo {
+  display: flex;
+
+  font-size: 1rem;
+}
+
+.itemDescription {
+  display: flex;
+  text-align: start;
+  justify-content: space-around;
+}
+.itemDescription p {
+  width: 50%;
+}
+.itemDescription button {
+  width: 40px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}

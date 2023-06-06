@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: 1,
     name: "Skeleton Pullover ",
@@ -6,7 +6,9 @@ const products = [
     image:
       "//cdn.shopify.com/s/files/1/0271/9658/8125/products/skeleton-pullover-techwear-854_720x.webp?v=1674840684",
     price: 299.99,
-    stock: 5,
+    stock: 15,
+    description:
+      "This techwear jacket is equipped with a multitude of storage pockets to easily carry your personal belongings.",
   },
   {
     id: 2,
@@ -95,6 +97,14 @@ export const getProducts = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products);
+    }, 2000);
+  });
+};
+
+export const getProductById = (productId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.find((prod) => prod.id === productId));
     }, 2000);
   });
 };
