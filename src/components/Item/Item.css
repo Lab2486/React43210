@@ -1,0 +1,29 @@
+.cardItem {
+  width: 24%;
+  text-align: center;
+  padding-bottom: 20px;
+  overflow: hidden;
+  color: black;
+}
+
+.itemImgContainer {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+.itemImg {
+  width: 90%;
+}
+.itemImg:hover {
+  transform: scale(2.1);
+  transition: 2s;
+}
+
+.itemInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+.itemName {
+  font-size: 1rem;
+}
