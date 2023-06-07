@@ -1,19 +1,25 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getProducts } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
 import "./ItemListContainer.css";
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
+  const { typeId } = useParams();
 
   useEffect(() => {
-    getProducts()
-      .then((response) => {
+    getProducts().then((response) => {
+      if (typeId) {
+        const filterProducts = response.filter(
+          (product) => product.type === typeId
+        );
+        setProducts(filterProducts);
+      } else {
         setProducts(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  });
+      }
+    });
+  }, [typeId]);
+
   return <ItemList products={products} />;
 }
 
