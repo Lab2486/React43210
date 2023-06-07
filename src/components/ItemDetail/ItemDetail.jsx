@@ -26,6 +26,7 @@ function ItemDetail({ id, name, image, price, stock, description, type }) {
             </div>
             <div className="detailFooter">
               <ItemCount stock={stock}></ItemCount>
+              <p>{id}</p>
             </div>
           </div>
         </article>
