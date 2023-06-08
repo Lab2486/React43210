@@ -5,7 +5,7 @@ import ItemList from "../ItemList/ItemList";
 import "./ItemListContainer.css";
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
-  const { typeId } = useParams();
+  const typeId = useParams().type;
 
   useEffect(() => {
     getProducts().then((response) => {

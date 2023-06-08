@@ -12,7 +12,7 @@ function ItemDetail({ id, name, image, price, stock, description, type }) {
           </div>
           <div className="detailInfo">
             <div className="detailHeader">
-              <h2>{name}</h2>
+              <h2 className="detailName">{name}</h2>
               <p>{type}</p>
               <p>$ {price}</p>
             </div>
@@ -26,7 +26,6 @@ function ItemDetail({ id, name, image, price, stock, description, type }) {
             </div>
             <div className="detailFooter">
               <ItemCount stock={stock}></ItemCount>
-              <p>{id}</p>
             </div>
           </div>
         </article>
