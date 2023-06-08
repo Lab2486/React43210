@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./ItemCount.css";
-import { Link } from "react-router-dom";
+
 function ItemCount({ stock, onAddToCart }) {
   let [count, setCount] = useState(1);
   function handleAdd() {
