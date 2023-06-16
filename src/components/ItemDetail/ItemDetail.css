@@ -46,3 +46,21 @@
   color: white;
   border-radius: 5px;
 }
+.detailFooter {
+  display: flex;
+  justify-content: center;
+}
+
+.terminarBtn {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  /* box-shadow: 5px 5px 0px black; */
+  padding: 10px;
+  border-radius: 10px;
+}
+.terminarBtn:hover {
+  translate: 3px 3px;
+  box-shadow: -3px -3px 0px black;
+}

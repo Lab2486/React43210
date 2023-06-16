@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
+import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 function ItemDetail({ id, name, image, price, stock, description, type }) {
+  const [quantityAdded, setQuantityAdded] = useState(0);
+  const { addItem } = useContext(CartContext);
+  const handleOnAdd = (quantity) => {
+    setQuantityAdded(quantity);
+    const item = {
+      id,
+      name,
+      price,
+    };
+    addItem(item, quantity);
+  };
   return (
     <>
       <div className="ItemDetail">
@@ -25,7 +38,13 @@ function ItemDetail({ id, name, image, price, stock, description, type }) {
               </div>
             </div>
             <div className="detailFooter">
-              <ItemCount stock={stock}></ItemCount>
+              {quantityAdded > 0 ? (
+                <Link to="/cart" className="terminarBtn">
+                  Terminar Compra
+                </Link>
+              ) : (
+                <ItemCount stock={stock} onAdd={handleOnAdd}></ItemCount>
+              )}
             </div>
           </div>
         </article>

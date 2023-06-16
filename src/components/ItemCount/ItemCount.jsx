@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./ItemCount.css";
+import Swal from "sweetalert2";
 
-function ItemCount({ stock, onAddToCart }) {
+function ItemCount({ stock, onAdd }) {
   let [count, setCount] = useState(1);
   function handleAdd() {
     if (count < stock) setCount(++count);
@@ -12,9 +13,6 @@ function ItemCount({ stock, onAddToCart }) {
   let isDisableSubstract = count === 1;
   let isDisableAdd = count === stock;
 
-  function onAddToCart() {
-    alert(`Compraster ${count} de esto`);
-  }
   return (
     <div className="countContainer">
       <div className="countBtnsConteiner">
@@ -37,7 +35,13 @@ function ItemCount({ stock, onAddToCart }) {
       <div>
         <button
           onClick={() => {
-            onAddToCart(count);
+            onAdd(count);
+            Swal.fire({
+              title: "Added to cart",
+              text: `${count} product added to cart`,
+              icon: "success",
+              confirmButtonText: "Sugoi",
+            });
           }}
           className="buyBtn"
         >

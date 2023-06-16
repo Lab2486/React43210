@@ -1,0 +1,12 @@
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC3bm0qzuNde2EW2jtKTOYvHPr3lwI6ckQ",
+  authDomain: "react43210-project.firebaseapp.com",
+  projectId: "react43210-project",
+  storageBucket: "react43210-project.appspot.com",
+  messagingSenderId: "40597849421",
+  appId: "1:40597849421:web:c450bffc128cf42b6b2304",
+};
+
+const firebaseApp = initializeApp(firebaseConfig);

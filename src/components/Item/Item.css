@@ -15,11 +15,11 @@
   overflow: hidden;
 }
 .itemImg {
-  width: 90%;
+  width: 100%;
 }
 .itemImg:hover {
-  transform: scale(2.1);
-  transition: 2s;
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 
 .itemInfo {
