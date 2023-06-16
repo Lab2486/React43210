@@ -111,18 +111,19 @@ export const products = [
   },
 ];
 
-export const getProducts = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 100);
-  });
-};
+//funciones que van a ser reemplazadas en firebase V
+// export const getProducts = () => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(products);
+//     }, 100);
+//   });
+// };
 
-export const getProductById = (productId) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products.find((prod) => prod.id === productId));
-    }, 100);
-  });
-};
+// export const getProductById = (productId) => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(products.find((prod) => prod.id === productId));
+//     }, 100);
+//   });
+// };
