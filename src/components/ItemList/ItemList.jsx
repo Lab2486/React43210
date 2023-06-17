@@ -1,5 +1,5 @@
 import Item from "../Item/Item";
-import "./ItemLIst.css";
+import "./ItemList.css";
 function ItemList(props) {
   return (
     <div className="ItemList">
