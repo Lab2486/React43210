@@ -1,23 +1,21 @@
 import "./ItemDetailContainer.css";
 import { useState, useEffect } from "react";
-// import { getProductById } from "../../asyncMock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../../services/firebase";
+
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../services/firebase";
 
 function ItemDetailContainer() {
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState(null);
   const id = useParams().id;
 
   useEffect(() => {
-    getProductById(id)
-      .then((response) => {
-        setProduct(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+    const docRef = doc(db, "product", id);
+    getDoc(docRef).then((resp) => {
+      console.log({ ...resp.data });
+    });
+  }, [id]);
 
   return (
     <>
