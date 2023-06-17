@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC3bm0qzuNde2EW2jtKTOYvHPr3lwI6ckQ",
@@ -10,18 +10,5 @@ const firebaseConfig = {
   appId: "1:40597849421:web:c450bffc128cf42b6b2304",
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
-export const db = getFirestore(firebaseApp);
-console.log("DATABASE ACA ------>", db);
-
-export async function getData() {
-  const productsCollection = collection(db, "products");
-  const productsSnapshot = await getDocs(productsCollection);
-  const arrayDocs = productsSnapshot.docs;
-  const dataDocs = arrayDocs.map((doc) => {
-    return { ...doc.data(), id: doc.id };
-  });
-  return dataDocs;
-}
-
-function getCategoryData() {} //from itemListContainer llamada getProducts
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);

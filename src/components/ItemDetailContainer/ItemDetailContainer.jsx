@@ -2,7 +2,6 @@ import "./ItemDetailContainer.css";
 import { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../services/firebase";
 
@@ -11,9 +10,9 @@ function ItemDetailContainer() {
   const id = useParams().id;
 
   useEffect(() => {
-    const docRef = doc(db, "product", id);
+    const docRef = doc(db, "products", id);
     getDoc(docRef).then((resp) => {
-      console.log({ ...resp.data });
+      setProduct({ ...resp.data(), id: resp.id });
     });
   }, [id]);
 

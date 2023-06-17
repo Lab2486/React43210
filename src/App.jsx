@@ -6,8 +6,6 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { CartProvider } from "./context/CartContext";
 import CartView from "./components/CartView/CartView";
 
-import { getData } from "./services/firebase";
-getData();
 function App() {
   return (
     <>
