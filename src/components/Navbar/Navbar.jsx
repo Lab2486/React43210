@@ -29,6 +29,9 @@ function Navbar() {
             <Link className="navLinks" to="/type/Shoes">
               Shoes
             </Link>
+            <Link className="navLinks" to="/type/Masks">
+              Masks
+            </Link>
           </ul>
         </div>
       </header>
