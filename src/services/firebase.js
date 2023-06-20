@@ -1,9 +1,11 @@
 import { initializeApp } from "firebase/app";
 import {
-  collection,
-  getDoc,
   getFirestore,
+  collection,
+  doc,
+  getDoc,
   writeBatch,
+  addDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -17,3 +19,28 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+export async function createOrder(data) {
+  const orderCollectionRef = collection(db, "orders");
+  const batch = writeBatch(db);
+
+  const { items } = data;
+
+  for (let itemOnCart of items) {
+    const docRef = doc(db, "products", itemOnCart.id);
+    const docSnap = await getDoc(docRef);
+    const { stock } = docSnap.data();
+    const stockToUpdate = stock - itemOnCart.quantity;
+    if (stockToUpdate < 0) {
+      throw new Error(`no quedan mas ${itemOnCart.id}`);
+    } else {
+      const docRef = doc(db, "products", itemOnCart.id);
+      batch.update(docRef, { stock: stockToUpdate });
+    }
+  }
+
+  await batch.commit();
+
+  const response = await addDoc(orderCollectionRef, data);
+  return response.id;
+}

@@ -14,13 +14,12 @@ function App() {
         <BrowserRouter>
           <CartProvider>
             <Navbar />
-
             <Routes>
               <Route path="/" element={<ItemListContainer />} />
               <Route path="product/:id" element={<ItemDetailContainer />} />
               <Route path="/type/:type" element={<ItemListContainer />}></Route>
               <Route path="/cart" element={<CartView />}></Route>
-              <Route path="/checkout/:id" element={<Checkout />}></Route>
+              <Route path="/checkout" element={<Checkout />}></Route>
             </Routes>
           </CartProvider>
         </BrowserRouter>

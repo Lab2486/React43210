@@ -1,49 +1,41 @@
-import { useState } from "react";
+import React, { useContext } from "react";
+import { createOrder } from "../../services/firebase";
+import { CartContext } from "../../context/CartContext";
+import Swal from "sweetalert2";
 
 function CheckoutForm() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-
-  const handleConfirm = (event) => {
-    event.preventDefault();
-
-    const useData = {
-      name,
-      phone,
-      email,
+  const { cart, totalPrice, clearCart } = useContext(CartContext);
+  async function handleConfirm(e) {
+    e.preventDefault();
+    const order = {
+      items: cart,
+      buyer: {
+        name: "juan",
+        email: "juan@rmail.com",
+        phone: 12345,
+      },
+      date: new Date(),
+      price: totalPrice(),
     };
-    confirm(useData);
-  };
+
+    const id = await createOrder(order);
+    Swal.fire({
+      title: "Gracias por su compra",
+      text: `ID de tu compra: ${id}`,
+      icon: "success",
+      confirmButtonText: "Sugoi",
+    });
+    clearCart();
+  }
   return (
-    <div className="formContainer">
-      <form onSubmit={handleConfirm}>
-        <label>
-          nombre
-          <input
-            type="text"
-            value={name}
-            onChange={({ target }) => setName(target.value)}
-          />
-        </label>
-        <label>
-          phone
-          <input
-            type="number"
-            value={name}
-            onChange={({ target }) => setPhone(target.value)}
-          />
-        </label>
-        <label>
-          email
-          <input
-            type="email"
-            value={name}
-            onChange={({ target }) => setEmail(target.value)}
-          />
-        </label>
+    <>
+      <form action="">
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <input type="number" placeholder="Phone" />
+        <button onClick={handleConfirm}>Create Order</button>
       </form>
-    </div>
+    </>
   );
 }
 
