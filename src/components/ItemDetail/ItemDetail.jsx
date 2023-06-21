@@ -1,4 +1,3 @@
-// ItemDetail.jsx
 import React, { useContext, useState } from "react";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
@@ -40,7 +39,16 @@ function ItemDetail({ id, name, image, price, stock, description, type }) {
             </div>
           </div>
           <div className="detailFooter">
-            {quantityAdded > 0 ? (
+            {stock === 0 ? (
+              <>
+                <div className="noStockContainer">
+                  <p className="noStockMensaje">Out of stock!</p>
+                  <Link className="noStockBtn" to="/">
+                    See all products
+                  </Link>
+                </div>
+              </>
+            ) : quantityAdded > 0 ? (
               <Link to="/cart" className="terminarBtn">
                 Go to Cart
               </Link>

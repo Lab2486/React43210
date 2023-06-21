@@ -1,23 +1,30 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./ItemCount.css";
 import Swal from "sweetalert2";
 
 function ItemCount({ stock, onAdd }) {
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
+
   function handleAdd() {
-    if (count < stock) setCount(++count);
+    if (count < stock) {
+      setCount(count + 1);
+    }
   }
+
   function handleReduce() {
-    if (count > 1) setCount(count - 1);
+    if (count > 1) {
+      setCount(count - 1);
+    }
   }
-  let isDisableSubstract = count === 1;
-  let isDisableAdd = count === stock;
+
+  const isDisableSubtract = count === 1;
+  const isDisableAdd = count === stock;
 
   return (
     <div className="countContainer">
       <div className="countBtnsConteiner">
         <button
-          disabled={isDisableSubstract}
+          disabled={isDisableSubtract}
           className="countBtns"
           onClick={handleReduce}
         >
@@ -35,12 +42,17 @@ function ItemCount({ stock, onAdd }) {
       <div>
         <button
           onClick={() => {
-            if (stock === 0) {
+            if (count === 0) {
               Swal.fire({
-                title: "No Stock Available",
-                text: "Sorry, this product is currently out of stock.",
+                title: "Debe agregar productos primero",
                 icon: "warning",
                 confirmButtonText: "OK",
+                customClass: {
+                  container: "sweetalert-container",
+                  title: "sweetalert-title",
+                  content: "sweetalert-content",
+                  confirmButton: "sweetalert-confirm-button",
+                },
               });
             } else {
               onAdd(count);
@@ -49,6 +61,12 @@ function ItemCount({ stock, onAdd }) {
                 text: `${count} product added to cart`,
                 icon: "success",
                 confirmButtonText: "Subarashī",
+                customClass: {
+                  container: "sweetalert-container",
+                  title: "sweetalert-title",
+                  content: "sweetalert-content",
+                  confirmButton: "sweetalert-confirm-button",
+                },
               });
             }
           }}

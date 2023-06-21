@@ -5,10 +5,14 @@ import { useContext } from "react";
 
 function CartWidget() {
   const { quantityOnCart } = useContext(CartContext);
+  const cartQuantity = quantityOnCart();
+
   return (
     <div className="cartContenedor">
       <Link to="/cart">
-        <span className="CartCounter">{quantityOnCart()}</span>
+        {cartQuantity > 0 && (
+          <span className="CartCounter">{cartQuantity}</span>
+        )}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
