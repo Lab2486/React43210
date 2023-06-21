@@ -3,7 +3,7 @@ import "./ItemCount.css";
 import Swal from "sweetalert2";
 
 function ItemCount({ stock, onAdd }) {
-  let [count, setCount] = useState(1);
+  let [count, setCount] = useState(0);
   function handleAdd() {
     if (count < stock) setCount(++count);
   }
@@ -34,15 +34,23 @@ function ItemCount({ stock, onAdd }) {
       </div>
       <div>
         <button
-          disabled={isDisableAdd}
           onClick={() => {
-            onAdd(count);
-            Swal.fire({
-              title: "Added to cart",
-              text: `${count} product added to cart`,
-              icon: "success",
-              confirmButtonText: "Subarashī",
-            });
+            if (stock === 0) {
+              Swal.fire({
+                title: "No Stock Available",
+                text: "Sorry, this product is currently out of stock.",
+                icon: "warning",
+                confirmButtonText: "OK",
+              });
+            } else {
+              onAdd(count);
+              Swal.fire({
+                title: "Added to Cart",
+                text: `${count} product added to cart`,
+                icon: "success",
+                confirmButtonText: "Subarashī",
+              });
+            }
           }}
           className="buyBtn"
         >
@@ -52,4 +60,5 @@ function ItemCount({ stock, onAdd }) {
     </div>
   );
 }
+
 export default ItemCount;
