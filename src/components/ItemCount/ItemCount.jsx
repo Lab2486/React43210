@@ -41,7 +41,7 @@ function ItemCount({ stock, onAdd }) {
               title: "Added to cart",
               text: `${count} product added to cart`,
               icon: "success",
-              confirmButtonText: "Sugoi",
+              confirmButtonText: "Subarashī",
             });
           }}
           className="buyBtn"
