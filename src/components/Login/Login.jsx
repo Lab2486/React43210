@@ -23,7 +23,10 @@ function Login() {
         </div>
       </div>
       <div className="huevoContainer">
-        <a href="https://media.tenor.com/VFFJ8Ei3C2IAAAAd/rickroll-rick.gif">
+        <a
+          className="huevo"
+          href="https://media.tenor.com/VFFJ8Ei3C2IAAAAd/rickroll-rick.gif"
+        >
           🥚
         </a>
       </div>
