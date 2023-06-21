@@ -1,7 +1,8 @@
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import "./Checkout.css";
 function Checkout() {
   return (
-    <div>
+    <div className="checkoutContainer">
       <CheckoutForm />
     </div>
   );

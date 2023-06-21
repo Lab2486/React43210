@@ -8,18 +8,20 @@ const CartView = () => {
 
   return (
     <div className="cartViewContainer">
-      <h1>Cart</h1>
+      <h1 className="cartTitle">Cart</h1>
 
       {cart.map((prod) => (
         <div key={prod.id} className="CartItem">
           <br />
+          <h3 className="CWName">{prod.name}</h3>
 
-          <h3>{prod.name}</h3>
-
-          <p>price:${prod.price}</p>
-          <p>total:${(prod.price * prod.quantity).toFixed(2)}</p>
-          <p>quantity{prod.quantity}</p>
+          <p className="CWPrice">Price: ${prod.price}</p>
+          <p className="CWTotalItem">
+            Total: ${(prod.price * prod.quantity).toFixed(2)}
+          </p>
+          <p className="CWQuantity">Quantity: {prod.quantity}</p>
           <button
+            className="deleteBtn"
             onClick={() => {
               removeItem(prod.id);
             }}
@@ -29,13 +31,21 @@ const CartView = () => {
         </div>
       ))}
       {cart.length > 0 ? (
-        <>
-          <h2>total price ${totalPrice()}</h2>
-          <button onClick={clearCart}>Vaciar</button>
-          <Link to="/checkout">Checkout</Link>
-        </>
+        <div className="cartFooter">
+          <h2>Total Price: ${totalPrice()}</h2>
+          <button className="vaciarBtn" onClick={clearCart}>
+            Vaciar
+          </button>
+          <Link className="checkoutBtn" to="/checkout">
+            Checkout
+          </Link>
+        </div>
       ) : (
-        <h3>Empty Cart</h3>
+        <div className="emptyContainer">
+          <h3>Empty Cart</h3>
+
+          <p>😑</p>
+        </div>
       )}
     </div>
   );

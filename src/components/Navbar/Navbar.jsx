@@ -11,7 +11,7 @@ function Navbar() {
             Login
           </Link>
           <Link className="brand" to="/">
-            Plus Ultra
+            Void-Tech
           </Link>
           <CartWidget />
         </div>

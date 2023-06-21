@@ -34,6 +34,7 @@ function ItemCount({ stock, onAdd }) {
       </div>
       <div>
         <button
+          disabled={isDisableAdd}
           onClick={() => {
             onAdd(count);
             Swal.fire({

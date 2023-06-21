@@ -1,18 +1,43 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { createOrder } from "../../services/firebase";
 import { CartContext } from "../../context/CartContext";
 import Swal from "sweetalert2";
+import "./CheckoutForm.css";
 
 function CheckoutForm() {
   const { cart, totalPrice, clearCart } = useContext(CartContext);
+  const [buyer, setBuyer] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const handleChange = (event) => {
+    setBuyer({
+      ...buyer,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   async function handleConfirm(e) {
     e.preventDefault();
+
+    if (cart.length === 0) {
+      Swal.fire({
+        title: "Carrito Vacío",
+        text: "Agrega productos antes de confirmar tu orden",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
     const order = {
       items: cart,
       buyer: {
-        name: "juan",
-        email: "juan@rmail.com",
-        phone: 12345,
+        name: buyer.name,
+        email: buyer.email,
+        phone: buyer.phone,
       },
       date: new Date(),
       price: totalPrice(),
@@ -27,15 +52,48 @@ function CheckoutForm() {
     });
     clearCart();
   }
+
   return (
-    <>
-      <form action="">
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="number" placeholder="Phone" />
-        <button onClick={handleConfirm}>Create Order</button>
+    <div className="formContainer">
+      <form className="form">
+        <div>
+          <label>Name: </label>
+          <input
+            type="text"
+            name="name"
+            value={buyer.name}
+            onChange={handleChange}
+            placeholder="Name"
+            required
+          />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={buyer.email}
+            onChange={handleChange}
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div>
+          <label>Phone</label>
+          <input
+            type="text"
+            name="phone"
+            value={buyer.phone}
+            onChange={handleChange}
+            placeholder="Phone"
+            required
+          />
+        </div>
+        <div className="orderBtnContainer">
+          <button onClick={handleConfirm}>Create Order</button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -16,8 +16,8 @@
   border-radius: 5px;
   border: none;
   background-color: white;
-
   text-decoration: none;
+  cursor: pointer;
 }
 .buyBtn {
   width: 200px;
@@ -26,6 +26,7 @@
   border: none;
   background-color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .buyBtn:hover {
@@ -34,5 +35,5 @@
 }
 
 .quantity {
-  color: red;
+  color: black;
 }

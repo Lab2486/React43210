@@ -1,4 +1,4 @@
-//import { products } from "../asyncMock";
+// import { products } from "../asyncMock";
 import { initializeApp } from "firebase/app";
 
 import { addDoc, getFirestore, collection } from "firebase/firestore";
