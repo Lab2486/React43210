@@ -42,7 +42,7 @@ function ItemDetail({ id, name, image, price, stock, description, type }) {
           <div className="detailFooter">
             {quantityAdded > 0 ? (
               <Link to="/cart" className="terminarBtn">
-                Terminar Compra
+                Go to Cart
               </Link>
             ) : (
               <ItemCount stock={stock} onAdd={handleOnAdd} />

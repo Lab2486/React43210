@@ -12,10 +12,11 @@
   width: 30%;
   justify-content: center;
   align-items: center;
-  background-color: rgb(48, 208, 208);
+  background-color: darkgray;
   flex-direction: column;
   gap: 20px;
   border-radius: 20px;
+  box-shadow: 5px 5px 0px black;
 }
 
 .form div {
@@ -35,4 +36,5 @@
   height: 30px;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 }

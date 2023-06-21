@@ -24,8 +24,8 @@ function CheckoutForm() {
 
     if (cart.length === 0) {
       Swal.fire({
-        title: "Carrito Vacío",
-        text: "Agrega productos antes de confirmar tu orden",
+        title: "Empty Cart",
+        text: "Add products before confirming your order",
         icon: "error",
         confirmButtonText: "OK",
       });
@@ -45,10 +45,10 @@ function CheckoutForm() {
 
     const id = await createOrder(order);
     Swal.fire({
-      title: "Gracias por su compra",
-      text: `ID de tu compra: ${id}`,
+      title: "Thanks for your purchase",
+      text: `ID of your purchase: ${id}`,
       icon: "success",
-      confirmButtonText: "Sugoi",
+      confirmButtonText: "Subarashī",
     });
     clearCart();
   }

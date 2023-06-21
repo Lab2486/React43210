@@ -34,7 +34,7 @@ function ItemDetailContainer() {
       </div>
     );
   } else {
-    return <div>Error: Producto no encontrado</div>;
+    return <div>Error: Product not found</div>;
   }
 }
 
