@@ -35,6 +35,37 @@ Link de Vercel
 ![home](/src/assets/checkout-cart-vacio-error.png)
 ### Carrito vacio luego de hacer checkout:
 ![home](/src/assets/cart-vacio.png)
+### Video de presentacion de la App (activar audio):
+https://github.com/Lab2486/React43210/assets/118452590/6beaaf84-76c2-40f5-9512-21dbdc2d74f6
+
+
+<details>
+
+<summary>Para poder utilizar el proyecto:</summary>
+
+## *Seguir los siguientes pasos*:
+
+
+   - Clonar el repositorio de GitHub:
+    `git clone https://github.com/Lab2486/React43210.git`
+
+
+   - cd dentro del directorio de la carpeta:
+    `cd ecommerce-react43210`
+
+
+   - Instala las dependencias:
+    `npm install`
+
+   - Correr el proyecto:
+    `npm run dev`
+
+
+
+</details>
+
+
+
 
 
 
