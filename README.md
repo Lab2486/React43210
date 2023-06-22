@@ -1,6 +1,6 @@
 # Void-Tech (ecommerce)
 
-## Designed by Lab24860 a.k.a Lucas Aballay
+## Designed by Lab2486 a.k.a Lucas Aballay
 
 Este es el proyecto final del curso dictado por CoderHouse de React Js de la carrera Front-End. Se trata sobre un Ecommerce, el cual está creado con Vite. Se implementa React.js con React Router, Typed JS, Firebase.
 
